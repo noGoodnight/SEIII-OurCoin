@@ -1,7 +1,7 @@
 import {axios} from '../utils/request'
 import request from "request";
 
-const prefix = "/SEIII_Backend/api/user"
+const prefix = "/api/user"
 
 const userApi = {
   search: prefix + "/search",
