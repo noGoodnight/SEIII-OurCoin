@@ -6,6 +6,7 @@
       <link-editor v-show="show2.linkEditor"></link-editor>
     </div>
     <div class="kg-container">
+      <span style="color: navy;position:absolute;top:4px;left: 7px">右击节点或关系显示菜单</span>
       <kg-tool @reduceKG="handleKGReduceImpl" @downloadKG="handleKGDownloadImpl"
                @renderKG="handleKGRenderImpl" @saveKG="handleKGSaveImpl" @searchKG="changeTopBar('searchBar')"
                @switchLabel="handleKGLabelSwitchImpl"></kg-tool>

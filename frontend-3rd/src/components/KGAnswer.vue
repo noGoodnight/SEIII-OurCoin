@@ -160,10 +160,11 @@ export default {
 
         let content = _this.questionContent
         _this.questionContent = ""
+        let res = ""
         try {
-          const res = await userApi.questionAck(content)
+          res = await userApi.questionAck(content)
         }catch (e) {
-          const res = "问题错误！"
+          res = "问题错误！"
         }finally {
           _this.questionContent = ""
         }
