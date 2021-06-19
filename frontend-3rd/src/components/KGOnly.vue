@@ -2,24 +2,25 @@
   <div @contextmenu.prevent="">
     <h1>{{ graph.gname }}</h1>
     <div class="kg-only-wrapper">
-      <span style="position: absolute;top:3px;right: 7px;color: navy">右击番剧节点查看详情，双击节点拓展图谱</span>
+      <span style="position: absolute;top:3px;right: 7px;color: navy">右击<span style="color: #F4590C">番剧</span>节点查看详情，双击节点拓展图谱</span>
     </div>
     <el-drawer :visible.sync="drawer" direction="rtl" :with-header="false" :size="490">
       <div v-if="detail!==null" style="height: 937px;overflow-y: auto;padding: 20px 0px;z-index: 100;filter: unset">
         <h1 style="font-size: 32px;color: white">番剧详情</h1>
-        <h1 style="font-size: 24px;font-family: 楷体;color: white">{{currentd.name}}</h1>
+        <h1 style="font-size: 24px;font-family: 楷体;color: white">{{ currentd.name }}</h1>
         <el-image
             :src="detail.jpg"
             fit="fill"
-            style="width: 300px"
-            ></el-image>
+            style="width: 300px;border-radius: 10px;border: 3px white solid"
+        ></el-image>
         <br/>
         <br>
-        <span style="color:white;">标签：{{detail.tags}}</span>
+        <span style="color:white;">标签：{{ detail.tags }}</span>
         <br/>
         <br/>
-        <p align="left" style="padding: 0px 20px;color: white">{{"简介："+detail.description}}</p>
-        <el-button @click="goToDetail(detail.url)" style="background: #fb7299;color: white;border: #fb7299">前往B站</el-button>
+        <p align="left" style="padding: 0px 20px;color: white">{{ "简介：" + detail.description }}</p>
+        <el-button @click="goToDetail(detail.url)" style="background: #fb7299;color: white;border: #fb7299">前往B站
+        </el-button>
       </div>
     </el-drawer>
   </div>
@@ -385,21 +386,21 @@ export default {
 
 <style>
 .kg-only-wrapper {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   width: 1113px;
   height: 678px;
   box-shadow: 0px 0px 4px darkgrey inset;
   position: relative;
 }
 
-.el-drawer__body{
+.el-drawer__body {
   position: relative;
   background: url("#");
   background-size: 100%;
   z-index: 1;
 }
 
-.el-drawer__body:after{
+.el-drawer__body:after {
   content: "";
   width: 120%;
   height: 120%;
@@ -407,8 +408,9 @@ export default {
   left: -10%;
   top: -2%;
   background: inherit;
+  background-size: cover;
   background-position: center;
-  filter: blur(20px) brightness(78%);
-  z-index:-1;
+  filter: blur(20px) brightness(75%);
+  z-index: -1;
 }
 </style>
