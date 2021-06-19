@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.DetailMapper">
+
+    <resultMap id="Detail" type="com.example.demo.po.Detail">
+        <id column="did" property="did"></id>
+        <result column="url" property="url"></result>
+        <result column="jpg" property="jpg"></result>
+        <result column="description" property="description"></result>
+        <result column="tags" property="tags"></result>
+    </resultMap>
+
+    <select id="getDetailByEid" resultMap="Detail">
+        select * from detail where did=#{eid}
+    </select>
+
+    <insert id="addDetail" parameterType="com.example.demo.po.Detail">
+        insert into detail (did, url, jpg, description, tags) values (#{did}, #{url}, #{jpg}, #{description}, #{tags})
+    </insert>
+
+    <delete id="deleteDetail">
+        delete from detail where did=#{eid}
+    </delete>
+
+</mapper>
+

@@ -1,0 +1,43 @@
+#!/usr/bin/env groovy
+node {
+    def mvnHome
+    def javaHome
+    mvnHome = tool 'maven3.6.3'
+    javaHome = tool 'jdk1.8'
+    env.PATH = "${javaHome}/bin:${mvnHome}/bin;${env.PATH}"
+
+
+
+    stage('git clone') { // for display purposes
+            // Get some code from a GitHub repository
+            git credentialsId: 'e9e63e4e-4946-4603-873d-273cc5c197f7', url: 'http://212.129.149.40/181250102_seciii/frontend.git'
+            // Get the Maven tool.
+            // ** NOTE: This 'M3' Maven tool must be configured
+            // **       in the global configuration.
+
+        }
+
+    stage('Npm Install') {
+        echo 'install start'
+
+        sh 'npm install'
+    }
+
+    stage('Build') {
+
+        echo 'buid start'
+
+        sh 'BUILD_ID=dontKillMe sh run_build.sh'
+
+
+    }
+
+    stage('Develop') {
+        echo "develop start"
+
+        withEnv(['JENKINS_NODE_COOKIE=DontKillMe']){
+            sh 'sh develop.sh'
+        }
+
+    }
+}

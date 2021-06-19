@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.RelationMapper">
+
+    <resultMap id="Relation" type="com.example.demo.po.Relation">
+        <id column="rid" property="rid"></id>
+        <result column="gid" property="gid"></result>
+        <result column="relation_name" property="name"></result>
+        <result column="first_entity" property="theFirstEid"></result>
+        <result column="second_entity" property="theSecondEid"></result>
+<!--        <result column="color" property="color"></result>-->
+<!--        <result column="ty_pe" property="type"></result>-->
+    </resultMap>
+
+    <select id="getRelationsByGid" resultMap="Relation">
+        select * from relation where gid=#{gid}
+    </select>
+
+    <select id="getRelationByRid" resultMap="Relation">
+        select * from relation where rid=#{rid}
+    </select>
+
+    <delete id="deleteRelationByRid">
+        delete from relation where rid=#{rid}
+    </delete>
+
+    <delete id="deleteRelationsByEid">
+        delete from relation where first_entity=#{eid} or second_entity=#{eid}
+    </delete>
+
+    <delete id="deleteRelationsByGid">
+        delete from relation where gid=#{gid}
+    </delete>
+
+    <insert id="addRelation" useGeneratedKeys="true" keyProperty="rid" parameterType="com.example.demo.po.Relation">
+        insert into relation (rid, gid, relation_name, first_entity, second_entity) values (#{rid}, #{gid}, #{name}, #{theFirstEid}, #{theSecondEid})
+    </insert>
+
+    <insert id="insertRelation" useGeneratedKeys="true" keyProperty="rid" parameterType="com.example.demo.po.Relation">
+        insert into relation (gid, relation_name, first_entity, second_entity) values (#{gid}, #{name}, #{theFirstEid}, #{theSecondEid})
+    </insert>
+
+    <update id="updateRelation" parameterType="com.example.demo.po.Relation">
+        update relation set
+            relation_name=#{name} ,
+            first_entity=#{theFirstEid},
+            second_entity=#{theSecondEid}
+        where rid=#{rid}
+
+    </update>
+
+    <select id="getFirstEidsBySecondEid" resultType="Integer">
+        select first_entity from relation where second_entity=#{eid} and gid=1
+    </select>
+
+    <select id="getSecondEidsByFirstEid" resultType="Integer">
+        select second_entity from relation where first_entity=#{eid} and gid=1
+    </select>
+
+    <select id="getRelationsByEid" resultMap="Relation">
+        select * from relation where (first_entity=#{eid} OR second_entity=#{eid}) and gid=1
+    </select>
+
+    <select id="getRidsByEid" resultType="Integer">
+        select rid from relation where (first_entity=#{eid} or second_entity=#{eid}) and gid=1
+    </select>
+
+</mapper>

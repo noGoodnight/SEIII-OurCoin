@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.EntityMapper">
+
+    <resultMap id="Entity" type="com.example.demo.po.Entity">
+        <id column="eid" property="eid"></id>
+        <result column="entity_name" property="name"></result>
+        <result column="gid" property="gid"></result>
+        <result column="x" property="x"></result>
+        <result column="y" property="y"></result>
+        <result column="category" property="category"></result>
+        <result column="color" property="color"></result>
+    </resultMap>
+
+    <select id="getEntitiesByGid" resultMap="Entity">
+        select * from entity where gid=#{gid}
+    </select>
+
+    <select id="getEntityByEid" resultMap="Entity">
+        select * from entity where eid=#{eid}
+    </select>
+
+    <delete id="deleteEntitiesByGid">
+        delete from entity where gid=#{gid}
+    </delete>
+
+    <delete id="deleteEntityByEid">
+        delete from entity where eid=#{eid}
+    </delete>
+
+    <insert id="addEntity" useGeneratedKeys="true" keyProperty="eid" parameterType="com.example.demo.po.Entity">
+        insert into entity (eid, entity_name, gid, x, y, category, color) values (#{eid}, #{name}, #{gid}, #{x}, #{y}, #{category}, #{color})
+    </insert>
+
+    <insert id="insertEntity" useGeneratedKeys="true" keyProperty="eid" parameterType="com.example.demo.po.Entity">
+        insert into entity (entity_name, gid, x, y, category, color) values (#{name}, #{gid}, #{x}, #{y}, #{category}, #{color})
+    </insert>
+
+    <update id="updateEntity" parameterType="com.example.demo.po.Entity">
+        update entity set
+            entity_name=#{name},
+            gid=#{gid},
+            x=#{x},
+            y=#{y},
+            category=#{category},
+            color=#{color}
+        where eid=#{eid}
+    </update>
+
+    <select id="getEntityNamesByKey" resultType="String">
+        select entity_name from entity where entity_name like concat('%','${key}','%') and gid=1
+    </select>
+
+
+    <select id="getEidsByKey" resultType="Integer">
+        select eid from entity where entity_name=#{key} and gid=1
+    </select>
+
+    <select id="getGraphEidByName" resultType="Integer">
+        select eid from entity where entity_name=#{name} and gid=#{gid}
+    </select>
+
+    <select id="getEntitiesByName" resultMap="Entity">
+        select * from entity where entity_name like concat('%','${key}','%') and gid=1
+    </select>
+
+    <select id="getEidsByGid" resultType="Integer">
+        select eid from entity where gid=#{gid}
+    </select>
+
+    <select id="getAllEntityNames" resultType="String">
+        select entity_name from entity where gid=1
+    </select>
+
+</mapper>

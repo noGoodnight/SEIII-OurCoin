@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.HistoryMapper">
+
+<resultMap id="HistoryEntry" type="com.example.demo.po.HistoryEntry">
+    <id column="hid" property="hid"></id>
+    <result column="history" property="history"></result>
+    <result column="uid" property="uid"></result>
+</resultMap>
+
+    <select id="getHistoriesByUid" resultType="String">
+        select history from history where uid=#{uid}  order by update_time desc
+    </select>
+
+    <insert id="addHistory" useGeneratedKeys="true" keyProperty="hid" parameterType="com.example.demo.po.HistoryEntry">
+        insert into history (uid,history) VALUES (#{uid},#{history})
+    </insert>
+
+    <select id="getHistoryByName" resultMap="HistoryEntry">
+        select * from history where history=#{name} and uid=#{uid}
+    </select>
+
+    <update id="updateTime">
+        update history set update_time=#{df} where hid=#{hid}
+    </update>
+
+    <delete id="deleteByName">
+        delete from history where history=#{name} and uid=#{uid}
+    </delete>
+
+    <delete id="deleteByUid">
+        delete from history where uid=#{uid}
+    </delete>
+
+</mapper>
+

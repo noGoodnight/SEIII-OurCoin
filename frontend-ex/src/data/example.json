@@ -1,0 +1,151 @@
+{
+  "title": {
+    "show": false,
+    "text": "graph"
+  },
+  "label": {
+    "show": true
+  },
+  "tooltip": {
+    "pointer": "shadow"
+  },
+  "legend": {
+    "x": "",
+    "show": true,
+    "top": "top",
+    "left": "center",
+    "data": [
+      "男性",
+      "女性"
+    ]
+  },
+  "series": [
+    {
+      "type": "graph",
+      "layout": "force",
+      "symbolSize": 50,
+      "categories": [
+        {
+          "name": "男性",
+          "itemStyle": {
+            "color": "#009800"
+          }
+        },
+        {
+          "name": "女性",
+          "itemStyle": {
+            "color": "#4592FF"
+          }
+        }
+      ],
+      "label": {
+        "show": true,
+        "fontSize": 20
+      },
+      "force": {
+        "repulsion": 1000
+      },
+      "edgeLabel": {
+        "position": "middle",
+        "show": true,
+        "fontSize": 10,
+        "formatter": "{c}"
+      },
+      "edgeSymbol": [
+        "",
+        "arrow"
+      ],
+      "data": [
+        {
+          "name": "A",
+          "category": 0,
+          "draggable": true
+        },
+        {
+          "name": "B",
+          "category": 1,
+          "draggable": true
+        },
+        {
+          "name": "C",
+          "category": 0,
+          "draggable": true
+        },
+        {
+          "name": "D",
+          "category": 1,
+          "draggable": true
+        },
+        {
+          "name": "E",
+          "category": 0,
+          "draggable": true
+        },
+        {
+          "name": "F",
+          "category": 1,
+          "draggable": true
+        },
+        {
+          "name": "G",
+          "category": 1,
+          "draggable": true
+        },
+        {
+          "name": "H",
+          "category": 1,
+          "draggable": true
+        }
+      ],
+      "links": [
+        {
+          "source": "A",
+          "target": "B",
+          "value": "夫妻"
+        },
+        {
+          "source": "A",
+          "target": "D",
+          "value": "父子"
+        },
+        {
+          "source": "A",
+          "target": "F",
+          "value": "朋友"
+        },
+        {
+          "source": "E",
+          "target": "F",
+          "value": "同事"
+        },
+        {
+          "source": "C",
+          "target": "H",
+          "value": "夫妻"
+        },
+        {
+          "source": "B",
+          "target": "H",
+          "value": "朋友"
+        },
+        {
+          "source": "B",
+          "target": "E",
+          "value": "朋友"
+        },
+        {
+          "source": "B",
+          "target": "G",
+          "value": "师生"
+        }
+      ],
+      "lineStyle": {
+        "opacity": 0.9,
+        "width": 3,
+        "curveness": 0.3
+      },
+      "zoom": 1.5,
+      "roam": true
+    }
+  ]
+}

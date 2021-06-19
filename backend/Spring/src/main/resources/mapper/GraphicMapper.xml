@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.GraphicMapper">
+
+    <resultMap id="Graph" type="com.example.demo.po.Graph">
+        <id column="gid" property="gid"></id>
+        <result column="graph_name" property="name"></result>
+<!--        <result column="directory" property="directory"></result>-->
+        <result column="uid" property="uid"></result>
+    </resultMap>
+
+    <select id="getGraphsByUid" resultMap="Graph">
+        select * from graph where uid=#{uid}
+    </select>
+
+    <select id="getGraphByGid" resultMap="Graph">
+        select * from graph where gid=#{gid}
+    </select>
+    
+    <delete id="deleteGraphByGid">
+        delete from graph where gid=#{gid}
+    </delete>
+
+    <delete id="deleteGraphsByUid">
+        delete from graph where uid=#{uid}
+    </delete>
+
+<!--    <delete id="deleteGraphsByDirectory">-->
+<!--        delete from graph where uid=#{uid} and directory=#{directory}-->
+<!--    </delete>-->
+
+    <insert id="addGraph" useGeneratedKeys="true" keyProperty="gid" parameterType="com.example.demo.po.Graph">
+        insert into graph (graph_name, uid) values (#{name}, #{uid})
+    </insert>
+
+    <update id="updateGraph" parameterType="com.example.demo.po.Graph">
+        update graph set graph_name=#{name}
+        where gid=#{gid} and uid=#{uid}
+    </update>
+
+</mapper>
