@@ -555,14 +555,12 @@ export default {
     async addLinK() {
       const _this = this
       if (_this.$store.state.linkCreatorSource === null || _this.$store.state.linkCreatorTarget === null) {
-        this.$notify({
-          title: '警告',
+        this.$message({
           message: '未选择新建关系的目标！',
           type: 'warning'
         });
       } else if (_this.$store.state.linkCreatorSource === _this.$store.state.linkCreatorTarget) {
-        this.$notify({
-          title: '警告',
+        this.$message({
           message: '起源和目标为相同节点！',
           type: 'warning'
         });

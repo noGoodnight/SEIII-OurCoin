@@ -172,6 +172,9 @@ public class UserServiceImpl implements UserService{
                     case "监督":
                         isJianDu=1;
                         break;
+                    case "制作":
+                        isZhiZuo=1;
+                        break;
                 }
                 continue;
             }
@@ -208,7 +211,7 @@ public class UserServiceImpl implements UserService{
             if(actorEids.isEmpty()) return  "角色查询无结果！";
             ArrayList<Integer> resultEids=new ArrayList<>();
             for(int i=0;i<actorEids.size();i++){
-                resultEids.addAll(relationMapper.getFirstEidsBySecondEid(actorEids.get(0)));
+                resultEids.addAll(relationMapper.getFirstEidsBySecondEid(actorEids.get(i)));
             }
             if(resultEids.isEmpty()) return "声优查询无结果！";
             result=result+"《"+animations.get(0)+"》中的声优有：\n";

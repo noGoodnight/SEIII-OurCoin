@@ -27,7 +27,7 @@
             <el-avatar id="userNode" :size="46" icon="el-icon-user"></el-avatar>
           </div>
           <div class="chat-question">
-            <p align="left" class="chat-p">你好！</p>
+            <p align="left" class="chat-p">你好！我想问【丰崎爱生】在【轻音少女 第一季】中的角色？</p>
           </div>
           <div style="clear: both"></div>
         </div>
@@ -36,7 +36,7 @@
             <el-avatar id="sysNode" :size="46" icon="el-icon-user-solid"></el-avatar>
           </div>
           <div class="chat-answer">
-            <p align="left" class="chat-p">你好！我是OurCoin</p>
+            <p align="left" class="chat-p">你好！我是OurCoin。"丰崎爱生"在《轻音少女 第一季》中的角色有：平泽唯。</p>
           </div>
           <div style="clear: both"></div>
         </div>

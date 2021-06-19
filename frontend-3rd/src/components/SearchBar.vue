@@ -57,7 +57,7 @@ export default {
       const _this = this
       _this.setSearchHistory(_this.searchContent)
       if (_this.searchContent === "") {
-        this.$notify.error({
+        this.$message.error({
           title: '错误',
           message: '请输入',
         });
