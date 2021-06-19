@@ -51,10 +51,10 @@
         <el-button style="position: absolute;right: 90px;bottom: 10px;" @click="toStandardSearch" type="primary">检索标准词
         </el-button>
         <span style="position:absolute;bottom: 25px;left: 10px;color: navy;">
-          请准确输入并用【】装饰标准词；
+          请准确输入并用<span style="color: #F56C6C">【】</span>装饰标准词；
         </span>
         <span style="position:absolute;bottom: 5px;left: 10px;color: navy;">
-          如若不确定输入是否标准，可以在以【为前缀下按Ctrl+Enter或点击案件在右侧搜索标准词.
+          如若不确定输入是否标准，可以在以【为前缀下按<span style="color: #F56C6C">Alt/Ctrl+Enter</span>或点击案件在右侧搜索标准词.
         </span>
       </div>
     </div>
@@ -105,7 +105,7 @@ export default {
     async handleQuestionAck(e) {
       const _this = this
 
-      if (e.ctrlKey) {
+      if (e.ctrlKey || e.altKey) {
         _this.toStandardSearch()
         return
       }
@@ -156,11 +156,17 @@ export default {
         questionDiv.appendChild(userDiv2)
         questionDiv.appendChild(userDiv3)
         chatView.appendChild(questionDiv)
+        chatView.scrollTop = chatView.scrollHeight
 
         let content = _this.questionContent
         _this.questionContent = ""
-        const res = await userApi.questionAck(content)
-        _this.questionContent = ""
+        try {
+          const res = await userApi.questionAck(content)
+        }catch (e) {
+          const res = "问题错误！"
+        }finally {
+          _this.questionContent = ""
+        }
 
         let answerDiv = document.createElement('div')
         answerDiv.className = 'chat-div'
@@ -205,6 +211,7 @@ export default {
         answerDiv.appendChild(sysDiv2)
         answerDiv.appendChild(sysDiv3)
         chatView.appendChild(answerDiv)
+        chatView.scrollTop = chatView.scrollHeight
       } else {
         this.$notify({
           title: '警告',

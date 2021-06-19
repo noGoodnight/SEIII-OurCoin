@@ -14,9 +14,9 @@
           style="width: 100%; float:left"
       ></el-autocomplete>
     </div>
-    <span style="float: left; margin-top: 10px;margin-left: 20px">搜索结果将使用</span>
+    <span style="float: left; margin-top: 10px;margin-left: 20px;color: navy">搜索结果将使用</span>
     <span style="float: left; margin-top: 10px;color: #fb7299">红色</span>
-    <span style="float: left; margin-top: 10px">标注</span>
+    <span style="float: left; margin-top: 10px;color: navy">标注</span>
     <div style="width: 5%;float:right;height: 80%;margin-top: 0.2%;">
       <el-button icon="el-icon-close" size="mini" circle @click="handleSearchClose"/>
     </div>

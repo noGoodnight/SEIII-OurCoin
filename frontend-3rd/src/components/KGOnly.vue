@@ -2,16 +2,16 @@
   <div @contextmenu.prevent="">
     <h1>{{ graph.gname }}</h1>
     <div class="kg-only-wrapper">
-      <span style="position: absolute;top:3px;right: 7px;color: navy">右击<span style="color: #F4590C">番剧</span>节点查看详情，双击节点拓展图谱</span>
+      <span style="position: absolute;top:3px;right: 7px;color: navy">右击<span style="color: #F56C6C">番剧</span>节点查看详情，双击节点拓展图谱</span>
     </div>
     <el-drawer :visible.sync="drawer" direction="rtl" :with-header="false" :size="490">
-      <div v-if="detail!==null" style="height: 937px;overflow-y: auto;padding: 20px 0px;z-index: 100;filter: unset">
+      <div v-if="detail!==null" style="height: auto;overflow-y: auto;padding: 20px 0px;z-index: 100;filter: unset">
         <h1 style="font-size: 32px;color: white">番剧详情</h1>
         <h1 style="font-size: 24px;font-family: 楷体;color: white">{{ currentd.name }}</h1>
         <el-image
             :src="detail.jpg"
             fit="fill"
-            style="width: 300px;border-radius: 10px;border: 3px white solid"
+            style="width: 280px;border-radius: 8px;border: 4px white solid"
         ></el-image>
         <br/>
         <br>
@@ -412,5 +412,6 @@ export default {
   background-position: center;
   filter: blur(20px) brightness(75%);
   z-index: -1;
+  float: left;
 }
 </style>
