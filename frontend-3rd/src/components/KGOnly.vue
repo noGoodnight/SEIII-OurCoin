@@ -416,6 +416,6 @@ export default {
 }
 
 .el-drawer.rtl{
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
 }
 </style>
