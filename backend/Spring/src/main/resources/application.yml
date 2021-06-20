@@ -8,9 +8,9 @@ spring:
     password: 452820
     driver-class-name: com.mysql.cj.jdbc.Driver
     platform: mysql
-#    schema: classpath:schema.sql
-#    data: classpath:data.sql
-#    initialization-mode: always
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+    initialization-mode: always
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
 server:
