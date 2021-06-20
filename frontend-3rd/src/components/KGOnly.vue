@@ -414,4 +414,8 @@ export default {
   z-index: -1;
   float: left;
 }
+
+.el-drawer.rtl{
+  overflow-y: scroll;
+}
 </style>
