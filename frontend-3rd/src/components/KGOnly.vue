@@ -406,7 +406,7 @@ export default {
   height: 120%;
   position: absolute;
   left: -10%;
-  top: -2%;
+  top: -5%;
   background: inherit;
   background-size: cover;
   background-position: center;
