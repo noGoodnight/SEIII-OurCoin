@@ -39,7 +39,7 @@ export function generateGraphApi(data) {
 // 根据用户uid获取图列表
 export function getGraphsByUidApi(data) {
   return axios({
-    url: `/api/graph/getGraphs/${data}`,
+    url: `${prefix}/getGraphs/${data}`,
     method: 'get',
     data: request,
   })
@@ -48,7 +48,7 @@ export function getGraphsByUidApi(data) {
 // 删除图
 export function deleteGraphByGidApi(data) {
   return axios({
-    url: `/api/graph/deleteGraphByGid/${data}`,
+    url: `${prefix}/deleteGraphByGid/${data}`,
     method: 'post',
     data: request,
   })
