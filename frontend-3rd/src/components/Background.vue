@@ -1,5 +1,7 @@
 <template>
-  <div class="bg"/>
+  <div class="bg">
+    <div style="position: absolute;top:0px;left:0px;width: 100%;height: 100%;background: rgba(255,255,255,0.2)"></div>
+  </div>
 </template>
 
 <script>
@@ -18,7 +20,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
-  opacity: 80%;
+  /*opacity: 80%;*/
   /*background-color: whitesmoke;*/
 }
 

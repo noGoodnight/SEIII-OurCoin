@@ -120,7 +120,7 @@ public class UserServiceImpl implements UserService{
         int isGongSi=0;
         int nrNum=0;
         int nzNum=0;
-        MyStaticValue.ENV.put(DicLibrary.DEFAULT,"target/classes/default.dic");
+        MyStaticValue.ENV.put(DicLibrary.DEFAULT,"../webapps/SEIII_Backend/WEB-INF/classes/default.dic");
         List<Term> terms= DicAnalysis.parse(question).getTerms();
         List<String> persons=new ArrayList<>();
         List<String> animations=new ArrayList<>();

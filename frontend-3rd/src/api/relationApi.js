@@ -1,7 +1,7 @@
 import {axios} from '../utils/request'
 import request from "request";
 
-const prefix = '/api/relation'
+const prefix = '/SEIII_Backend/api/relation'
 
 const relationApi = {
   del: prefix + '/deleteRelation',

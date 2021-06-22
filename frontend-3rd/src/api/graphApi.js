@@ -1,7 +1,7 @@
 import {axios} from '../utils/request'
 import request from "request";
 
-const prefix = '/api/graph'
+const prefix = '/SEIII_Backend/api/graph'
 
 const graphApi = {
   getById: prefix + '/getGraphById',

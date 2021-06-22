@@ -1,6 +1,8 @@
 <template>
   <div style="position: relative">
-    <div class="home"/>
+    <div class="home">
+      <div style="position: absolute;top:0px;left:0px;width: 100%;height: 100%;background: rgba(255,255,255,0.1)"></div>
+    </div>
     <div style="position: absolute;left: 285px;top:180px">
       <el-image :src="require('../assets/OurCoin.png' )"></el-image>
     </div>
@@ -47,7 +49,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0px 0px;
-  opacity: 80%;
+  /*opacity: 80%;*/
 }
 
 #des {
