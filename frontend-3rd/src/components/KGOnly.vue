@@ -406,7 +406,7 @@ export default {
   height: 120%;
   position: absolute;
   left: -10%;
-  top: -5%;
+  top: -8%;
   background: inherit;
   background-size: cover;
   background-position: center;
@@ -416,6 +416,6 @@ export default {
 }
 
 .el-drawer.rtl{
-  /*overflow-y: scroll;*/
+  overflow-y: scroll;
 }
 </style>
